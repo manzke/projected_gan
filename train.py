@@ -203,8 +203,8 @@ def main(**kwargs):
     c.ema_kimg = c.batch_size * 10 / 32
     if opts.cfg == 'stylegan2':
         c.G_kwargs.class_name = 'pg_modules.networks_stylegan2.Generator'
-        c.G_kwargs.fused_modconv_default = 'inference_only' # Speed up training by using regular convolutions instead of grouped convolutions.
-        use_separable_discs = True
+        #c.G_kwargs.fused_modconv_default = 'inference_only' # Speed up training by using regular convolutions instead of grouped convolutions.
+        #use_separable_discs = True
 
     elif opts.cfg in ['fastgan', 'fastgan_lite']:
         c.G_kwargs = dnnlib.EasyDict(class_name='pg_modules.networks_fastgan.Generator', cond=opts.cond, synthesis_kwargs=dnnlib.EasyDict())
